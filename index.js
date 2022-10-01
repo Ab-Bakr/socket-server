@@ -1,4 +1,8 @@
-const io = require("socket.io")(https, {
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+
+const httpServer = createServer();
+const io = new Server(httpServer, {
   cors: {
     origin: "https://chat.webfikasolutions.com/",
   },
