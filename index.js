@@ -1,4 +1,4 @@
-const io = require("socket.io")(https, {
+const io = require("socket.io")(http, {
   cors: {
     origin: "https://chat.webfikasolutions.com/",
   },
