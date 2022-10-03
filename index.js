@@ -1,10 +1,11 @@
+require("dotenv").config();
 const http = require("http").createServer();
 const io = require("socket.io")(http, {
-  cors: { origin: "*" },
+  cors: { origin: "https://socket-server-g41b.onrender.com" },
 });
 
 let activeUsers = [];
-
+PORT = process.env.PORT || 5000;
 io.on("connection", (socket) => {
   // Add new user
   socket.on("new-user-add", (newUserId) => {
@@ -35,4 +36,8 @@ io.on("connection", (socket) => {
     // send all active users to all users
     io.emit("get-users", activeUsers);
   });
+});
+
+io.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });
