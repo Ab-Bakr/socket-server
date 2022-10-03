@@ -1,11 +1,6 @@
-const { createServer } = require("http");
-const { Server } = require("socket.io");
-
-const httpServer = createServer();
-const io = new Server(httpServer, {
-  cors: {
-    origin: "https://chat.webfikasolutions.com/",
-  },
+const http = require("http").createServer();
+const io = require("socket.io")(http, {
+  cors: { origin: "*" },
 });
 
 let activeUsers = [];
