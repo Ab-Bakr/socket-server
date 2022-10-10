@@ -7,7 +7,7 @@ const io = new Server(httpServer, {
     origin: "https://chat.webfikasolutions.com",
     // or with an array of origins
     // origin: ["https://my-frontend.com", "https://my-other-frontend.com", "http://localhost:3000"],
-    //credentials: true
+    credentials: true,
   },
 });
 
