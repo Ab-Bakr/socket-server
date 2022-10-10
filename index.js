@@ -1,13 +1,8 @@
-const { createServer } = require("http");
-const { Server } = require("socket.io");
-
-const httpServer = createServer();
-const io = new Server(httpServer, {
+require("dotenv").config();
+PORT = process.env.PORT || 8800;
+const io = require("socket.io")(PORT, {
   cors: {
     origin: "https://chat.webfikasolutions.com",
-    // or with an array of origins
-    // origin: ["https://my-frontend.com", "https://my-other-frontend.com", "http://localhost:3000"],
-    credentials: true,
   },
 });
 
