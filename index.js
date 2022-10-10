@@ -1,6 +1,13 @@
-const io = require("socket.io")(8800, {
+import { createServer } from "http";
+import { Server } from "socket.io";
+
+const httpServer = createServer();
+const io = new Server(httpServer, {
   cors: {
     origin: "https://chat.webfikasolutions.com",
+    // or with an array of origins
+    // origin: ["https://my-frontend.com", "https://my-other-frontend.com", "http://localhost:3000"],
+    //credentials: true
   },
 });
 
